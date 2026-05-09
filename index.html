@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>邦国文库</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app" id="app">
+      <aside class="sidebar" aria-label="侧边目录">
+        <div class="brand">
+          <div class="brand-title">邦国文库</div>
+          <div class="brand-subtitle">白 · 绿主题</div>
+        </div>
+
+        <div class="sidebar-actions">
+          <input id="search" class="search" type="search" placeholder="搜索标题…" autocomplete="off" />
+          <div class="sidebar-links">
+            <a class="chip" href="#/邦国文库/README.md">总目录</a>
+            <a class="chip" href="#/邦国文库/序言.md">序言</a>
+          </div>
+        </div>
+
+        <nav id="nav" class="nav" aria-label="文库导航">
+          <div class="nav-loading">正在加载目录…</div>
+        </nav>
+      </aside>
+
+      <main class="main" aria-label="内容区">
+        <header class="topbar">
+          <button class="icon-btn" id="toggleSidebar" type="button" aria-label="展开/收起侧栏">
+            ☰
+          </button>
+          <div class="crumb" id="crumb">—</div>
+          <a class="toplink" href="#/邦国文库/README.md">返回目录</a>
+          <a class="toplink" href="https://github.com/2542142034qqcom/bgjq" target="_blank" rel="noopener noreferrer">编辑此页</a>
+        </header>
+
+        <article id="content" class="content">
+          <div class="content-loading">正在加载内容…</div>
+        </article>
+
+        <footer class="footer">
+          <span>部署：Cloudflare Pages（纯静态）</span>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Markdown 渲染库（无需构建步骤） -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" integrity="" crossorigin="anonymous"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
