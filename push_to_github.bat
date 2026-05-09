@@ -46,11 +46,11 @@ echo [i] Staging changes...
 git add -A
 if errorlevel 1 goto :error
 
-REM If nothing to commit, exit
+REM If nothing to commit, still try pushing (in case previous push failed)
 git diff --cached --quiet
 if not errorlevel 1 (
   echo [i] Nothing to commit.
-  goto :done
+  goto :push
 )
 
 set "MSG=update %date% %time%"
@@ -58,6 +58,7 @@ echo [i] Commit message: %MSG%
 git commit -m "%MSG%"
 if errorlevel 1 goto :error
 
+:push
 echo [i] Pushing to GitHub...
 git push -u origin main
 if errorlevel 1 goto :error
