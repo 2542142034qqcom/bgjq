@@ -14,6 +14,10 @@
 
 如果您有新的投稿，请前往https://github.com/2542142034qqcom/bgjq/ 提交PR（什么？你连github都开不起来？别提交了:>）
 
+Minecraft邦国崛起服务器：
+- 入群链接： 点击链接加入群聊【邦国崛起】：https://qm.qq.com/q/aRKx9uVgM8
+- 服务器信息：1.21.4 Vanlia bgjq.simpfun.cn
+
 > 注：史书有云系列文档已宣布暂停主线更新，但仍保留玩家无限编辑的权力。
 
 ---
