@@ -1,36 +1,38 @@
 @echo off
+chcp 65001 >nul
+title Push to GitHub
 setlocal EnableExtensions
 
-REM 推送脚本（双击运行）
-REM 仓库根目录：当前 .bat 所在目录（site）
+REM Push script (double click to run)
+REM Repo root: current .bat directory (site)
 
 cd /d "%~dp0"
 
 set "REMOTE_URL=https://github.com/2542142034qqcom/bgjq.git"
 
-REM 1) 若未初始化 git 仓库则初始化并设置远程
+REM 1) Init git repo if missing
 if not exist ".git" (
-  echo [i] 初始化 Git 仓库...
+  echo [i] Initializing Git repository...
   git init
   if errorlevel 1 goto :error
 )
 
-REM 2) 确保远程 origin 存在且指向目标仓库
+REM 2) Ensure origin remote points to target
 git remote get-url origin >nul 2>nul
 if errorlevel 1 (
-  echo [i] 添加远程 origin...
+  echo [i] Adding remote origin...
   git remote add origin "%REMOTE_URL%"
   if errorlevel 1 goto :error
 ) else (
   for /f "usebackq delims=" %%R in (`git remote get-url origin`) do set "CURRENT_REMOTE=%%R"
   if /i not "%CURRENT_REMOTE%"=="%REMOTE_URL%" (
-    echo [i] 更新远程 origin...
+    echo [i] Updating remote origin...
     git remote set-url origin "%REMOTE_URL%"
     if errorlevel 1 goto :error
   )
 )
 
-REM 3) 切换/创建 main 分支
+REM 3) Checkout/create main branch
 git rev-parse --verify main >nul 2>nul
 if errorlevel 1 (
   git checkout -b main
@@ -39,35 +41,35 @@ if errorlevel 1 (
 )
 if errorlevel 1 goto :error
 
-REM 4) 添加、提交、推送
-echo [i] 添加变更...
+REM 4) Add, commit, push
+echo [i] Staging changes...
 git add -A
 if errorlevel 1 goto :error
 
-REM 如果没有变更，就直接退出
+REM If nothing to commit, exit
 git diff --cached --quiet
 if not errorlevel 1 (
-  echo [i] 没有需要提交的变更。
+  echo [i] Nothing to commit.
   goto :done
 )
 
 set "MSG=update %date% %time%"
-echo [i] 提交：%MSG%
+echo [i] Commit message: %MSG%
 git commit -m "%MSG%"
 if errorlevel 1 goto :error
 
-echo [i] 推送到 GitHub...
+echo [i] Pushing to GitHub...
 git push -u origin main
 if errorlevel 1 goto :error
 
 :done
 echo.
-echo [OK] 完成。
+echo [OK] Done.
 pause
 exit /b 0
 
 :error
 echo.
-echo [ERR] 失败，请复制窗口输出给我排查。
+echo [ERR] Failed. Please copy the output here.
 pause
 exit /b 1
