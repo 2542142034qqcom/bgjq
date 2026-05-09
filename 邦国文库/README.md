@@ -12,7 +12,7 @@
 
 本文档完全为玩家自发创作，与bugjump、simpfun等主体无关。编辑人员鱼龙混杂，在此感谢他们的切实记录亦或胡编乱造。
 
-如果您有新的投稿，请前往https://github.com/2542142034qqcom/bgjq提交PR（什么？你连github都开不起来？别提交了:>）
+如果您有新的投稿，请前往https://github.com/2542142034qqcom/bgjq/ 提交PR（什么？你连github都开不起来？别提交了:>）
 
 > 注：史书有云系列文档已宣布暂停主线更新，但仍保留玩家无限编辑的权力。
 
@@ -95,3 +95,4 @@
 - 服务器网页地图：http://bgjq.simpfun.cn
 - 服务器帮助文档：https://bgjq.yuque.com/org-wiki-bgjq-kc4g7v/pfk86c
 - 三方wiki小站：https://wiki.bgjq.top/
+- 第三方机器人网站：https://botb.uskg114514.dpdns.org
