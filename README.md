@@ -1,0 +1,1 @@
+https://bgjq.pages.dev/
